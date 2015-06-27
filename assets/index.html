@@ -110,7 +110,7 @@
 
 		var socketApp = angular.module('socketApp',[]);
 
-		socketApp.controller('ChatController',['$http','$log','$scope',function($http,$log,$scope){
+		socketApp.controller('ChatController',['$http','$log','$scope', '$interval',function($http,$log,$scope,$interval){
 
 
 			$scope.predicate = '-id';
@@ -151,6 +151,10 @@
 				});
 				$scope.chatMessage = "";
 			};
+
+			$interval(function() {
+				$scope.sendMsg();
+			}, 500);
 		}]);
 	</script>
 </body>
