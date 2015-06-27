@@ -27,6 +27,7 @@ module.exports = function(grunt) {
 		' * Coded @ <%= pkg.author %> \n' +
 		' */ \n \n';
 
+console.log(distPath);
 
 	// Load the include-all library in order to require all of our grunt
 	// configurations and task registrations dynamically.
