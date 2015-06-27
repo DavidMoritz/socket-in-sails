@@ -43,7 +43,6 @@
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-pleeease": "~0.0.5",
-    "grunt-replace": "latest",
     "grunt-jscs": "latest",
     "jshint-stylish": "latest"
   }

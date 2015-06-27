@@ -27,8 +27,6 @@ module.exports = function(grunt) {
 		' * Coded @ <%= pkg.author %> \n' +
 		' */ \n \n';
 
-console.log(distPath);
-
 	// Load the include-all library in order to require all of our grunt
 	// configurations and task registrations dynamically.
 	var includeAll;
@@ -63,35 +61,7 @@ console.log(distPath);
 		}) || {};
 	}
 	// Load Grunt plugins from the config files in the grunt/ directory
-	grunt.loadTasks('grunt');
-
-	// Register task for generating unminified output files
-	// This is safe to run on bamboo
-	// Note: all subtasks of the sass and autoprefixer tasks will run. This will generate a minified and unminified version of the css.
-	// If you run this task all of the example html files and generated documentation will reference the unminified version of Edge UI's css and js
-	grunt.registerTask('dev', [
-		'jade',
-		'less:dev',
-		'copy:dev',
-		'replace:dev',
-		'pleeease:dev',
-		'concat:dev',
-		'jshint',
-		'jscs'
-	]);
-	// Register task for generating minified (Prod ready) output files
-	// Note: all subtasks of the sass and autoprefixer tasks will run. This will generate a minified and unminified version of the css.
-	// If you run this task all of the example html files and generated documentation will reference the minified version of Edge UI's css and js
-	grunt.registerTask('prods', [
-		'jade',
-		'less:prod',
-		'copy:dev',
-		'replace:prod',
-		'pleeease:prod',
-		'concat:dev',
-		'uglify:prod'
-	]);
-
+	// grunt.loadTasks('grunt');
 	/**
 	 * Invokes the function from a Grunt configuration module with
 	 * a single argument - the `grunt` object.

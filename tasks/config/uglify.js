@@ -15,6 +15,14 @@ module.exports = function(grunt) {
 		dist: {
 			src: ['.tmp/public/concat/production.js'],
 			dest: '.tmp/public/min/production.min.js'
+		},
+		prod: {
+			options: {
+				banner: '<%= banner %>',
+			},
+			files: {
+				'<%= distPath %>main.js': '<%= distPath %>main.js'
+			}
 		}
 	});
 

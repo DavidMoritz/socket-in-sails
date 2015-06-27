@@ -21,6 +21,24 @@ module.exports = function(grunt) {
 				dest: '.tmp/public/styles/',
 				ext: '.css'
 			}]
+		},
+		sg: {
+			files: [{
+				'<%= distPath %>main.css': [
+					'src/less/all.less'
+				]
+			}]
+		},
+		prod: {
+			options: {
+				cleancss: true,
+				compress: true
+			},
+			files: [{
+				'<%= distPath %>main.css': [
+					'src/less/all.less'
+				]
+			}]
 		}
 	});
 
