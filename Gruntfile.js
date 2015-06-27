@@ -14,6 +14,19 @@
 
 module.exports = function(grunt) {
 
+	// Define other properties of the config object
+	// Define the root directory for distribution
+	var distRoot = 'assets',
+	// Build main distribution path. NOTE: There is no slash at the end
+		distPath = distRoot + '/inc/',
+	// Define banner for css and js files
+		banner = '/*!\n' +
+		' * <%= pkg.description %> - v<%= pkg.version %> \n' +
+		' * Build Date: <%= grunt.template.today("yyyy.mm.dd") %> \n' +
+		' * Docs: <%= pkg.homepage %> \n' +
+		' * Coded @ <%= pkg.author %> \n' +
+		' */ \n \n';
+
 
 	// Load the include-all library in order to require all of our grunt
 	// configurations and task registrations dynamically.
@@ -30,7 +43,6 @@ module.exports = function(grunt) {
 			console.error('To fix this, please run:');
 			console.error('npm install include-all --save`');
 			console.error();
-
 			grunt.registerTask('default', []);
 			return;
 		}
@@ -49,6 +61,35 @@ module.exports = function(grunt) {
 			filter: /(.+)\.js$/
 		}) || {};
 	}
+	// Load Grunt plugins from the config files in the grunt/ directory
+	grunt.loadTasks('grunt');
+
+	// Register task for generating unminified output files
+	// This is safe to run on bamboo
+	// Note: all subtasks of the sass and autoprefixer tasks will run. This will generate a minified and unminified version of the css.
+	// If you run this task all of the example html files and generated documentation will reference the unminified version of Edge UI's css and js
+	grunt.registerTask('dev', [
+		'jade',
+		'sg-less:dev',
+		'sg-copy',
+		'replace:dev',
+		'pleeease:dev',
+		'sg-concat',
+		'jshint',
+		'jscs'
+	]);
+	// Register task for generating minified (Prod ready) output files
+	// Note: all subtasks of the sass and autoprefixer tasks will run. This will generate a minified and unminified version of the css.
+	// If you run this task all of the example html files and generated documentation will reference the minified version of Edge UI's css and js
+	grunt.registerTask('prods', [
+		'jade',
+		'sg-less:prod',
+		'sg-copy',
+		'replace:prod',
+		'pleeease:prod',
+		'sg-concat',
+		'sg-uglify'
+	]);
 
 	/**
 	 * Invokes the function from a Grunt configuration module with

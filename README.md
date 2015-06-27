@@ -1,4 +1,7 @@
-# Socket in Sails
+# Splendid Gems
+Some have suggested that this game is similar to the card game "Splendor" by Space Cowboys.
 
-A chat application built on Sails with Angular and Sockets. 
-![Sails Angular Socket](/assets/images/sock-4.png)
+### Consumption
+1. Run npm install
+2. Run grunt
+3. Open dist/index.html

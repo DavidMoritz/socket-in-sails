@@ -68,6 +68,7 @@ config/local.js
 
 node_modules
 bower_components
+lib
 
 
 
@@ -96,6 +97,7 @@ lib-cov
 *.log
 *.out
 *.pid
+*.orig
 npm-debug.log
 
 
@@ -116,3 +118,9 @@ npm-debug.log
 nbproject
 .idea
 .node_history
+Thumbs.db
+.cache
+.project
+.settings
+*.sublime-project
+*.sublime-workspace
