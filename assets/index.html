@@ -109,6 +109,7 @@
 	<script type="text/javascript">
 
 		var socketApp = angular.module('socketApp',[]);
+		var inc = 1;
 
 		socketApp.controller('ChatController',['$http','$log','$scope', '$interval',function($http,$log,$scope,$interval){
 
@@ -147,13 +148,16 @@
 				$log.info($scope.chatMessage);
 				io.socket.post('/chat/addconv/',{
 					user:$scope.chatUser,
-					message: $scope.chatMessage + "n"
+					message: $scope.chatMessage + "n: " + inc
 				});
 				$scope.chatMessage = "";
 			};
 
 			$interval(function() {
-				$scope.sendMsg();
+				if($scope.chatUser == "autoBot") {
+					inc++;
+					$scope.sendMsg();
+				}
 			}, 500);
 		}]);
 	</script>
