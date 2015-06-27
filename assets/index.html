@@ -145,7 +145,10 @@
 
 			$scope.sendMsg = function(){
 				$log.info($scope.chatMessage);
-				io.socket.post('/chat/addconv/',{user:$scope.chatUser,message: $scope.chatMessage});
+				io.socket.post('/chat/addconv/',{
+					user:$scope.chatUser,
+					message: $scope.chatMessage + "n"
+				});
 				$scope.chatMessage = "";
 			};
 		}]);
