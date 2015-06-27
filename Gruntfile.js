@@ -70,11 +70,11 @@ module.exports = function(grunt) {
 	// If you run this task all of the example html files and generated documentation will reference the unminified version of Edge UI's css and js
 	grunt.registerTask('dev', [
 		'jade',
-		'sg-less:dev',
-		'sg-copy',
+		'less:dev',
+		'copy:dev',
 		'replace:dev',
 		'pleeease:dev',
-		'sg-concat',
+		'concat:dev',
 		'jshint',
 		'jscs'
 	]);
@@ -83,12 +83,12 @@ module.exports = function(grunt) {
 	// If you run this task all of the example html files and generated documentation will reference the minified version of Edge UI's css and js
 	grunt.registerTask('prods', [
 		'jade',
-		'sg-less:prod',
-		'sg-copy',
+		'less:prod',
+		'copy:dev',
 		'replace:prod',
 		'pleeease:prod',
-		'sg-concat',
-		'sg-uglify'
+		'concat:dev',
+		'uglify:prod'
 	]);
 
 	/**

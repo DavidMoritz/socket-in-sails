@@ -2,7 +2,7 @@
  * concat and minify scripts
  */
 module.exports = function exportUglify(grunt) {
-	grunt.config.set('sg-uglify', {
+	grunt.config.set('uglify', {
 		prod: {
 			options: {
 				banner: '<%= banner %>',

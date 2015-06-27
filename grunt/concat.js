@@ -2,8 +2,8 @@
  * concatenate scripts together for dev
  */
 module.exports = function exportConcat(grunt) {
-	grunt.config.set('sg-concat', {
-		js: {
+	grunt.config.set('concat', {
+		dev: {
 			options: {
 				stripBanners: true,
 				banner: '<%= banner %>',

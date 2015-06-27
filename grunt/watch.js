@@ -1,6 +1,6 @@
 module.exports = function exportWatch(grunt) {
 	grunt.config.set('sg-watch', {
-		src: {
+		dev: {
 			files: [
 				'src/**/*.*'
 			],

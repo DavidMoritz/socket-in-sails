@@ -1,6 +1,6 @@
 module.exports = function exportCopy(grunt) {
-	grunt.config('sg-copy', {
-		copy: {
+	grunt.config('copy', {
+		dev: {
 			files: [
 				// copy all html pages
 				{
